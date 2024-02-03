@@ -14,7 +14,7 @@ import {PriceConverter} from "./PriceConverter.sol";
 contract FundMe {
 
     using PriceConverter for uint256;
-    uint256 public minBTTinUSD = 5e18;
+    uint256 public minBTTinUSD = 1e17;
     address[] public funders;
     mapping (address funder => uint256 amountFunded) public addressToAmountFunded;
 
@@ -24,7 +24,7 @@ contract FundMe {
         //Allow users to send BTT
         //Have a minimum amount of BTT to fund
         //1. How do we send BTT to this contract??
-        require(msg.value.getConvertionRate() >= minBTTinUSD, "You did not send enough BTT :(, Minimum is 5 USDT");  // 1e18 wei =1 BTT, so in this SC minimum a donator needs to donate 1k BTT
+        require(msg.value.getConvertionRate() >= minBTTinUSD, "You did not send enough BTT :(, Minimum is 0.1 USDT");  // 1e18 wei =1 BTT, so in this SC minimum a donator needs to donate 1k BTT
         //Have a list which stores funders addresses so we can thank them publicaly later on
         funders.push(msg.sender);
         addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
@@ -36,13 +36,14 @@ contract FundMe {
     function withdraw() public {
 
     }
-    
-    function getBTTPrice() public {}
-    //Address
-    //ABI
-
-    function getBTTUSDConversionRate() public {}
     */
+    function getBTTPrice(uint256 _bttAmount) public view returns (uint256,uint256){
+        return  (PriceConverter.getPrice(),PriceConverter.getConvertionRate(_bttAmount));
+    }
+    
+
+    //function getBTTUSDConversionRate() public {}
+    
 
 
 }
