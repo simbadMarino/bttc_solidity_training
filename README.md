@@ -1,5 +1,9 @@
-# solidity_training
-BTTC solidity training inspired by Patrick Collins's Solidity & Blockchain trainings
+# Bittorrent Chain Solidity Training
+BTTC solidity training inspired by [Patrick Collins's Solidity & Blockchain trainings](https://youtu.be/umepbfKp5rI?si=5ersakMOiJ-XFeyY) and adapted to Bittorrent Chain. 
+Brought to you by SimbadMarino
+
+
+1) Fund Me smart contract:
 
 FundMe contract allows us to:
 - Get funding from users.
