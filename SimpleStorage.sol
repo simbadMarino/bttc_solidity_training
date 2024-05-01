@@ -4,7 +4,7 @@ pragma solidity 0.8.19;
 contract SimpleStorage{
 //Basic types: boolean, uint, int, address, bytes
     uint256 myNumber;
-
+    uint128 public peopleIndex;
     struct Person {
 
         uint256 age;
@@ -14,6 +14,7 @@ contract SimpleStorage{
     //Person public Caro = Person({age: 34, name: "Carolina"});
 
     Person[] public listOfPeople;
+
 
     mapping (string => uint256) public getAge;
 
@@ -27,7 +28,10 @@ contract SimpleStorage{
 
         listOfPeople.push(Person(_age, _name));
         getAge[_name] = _age;
+        peopleIndex ++;
     }
+
+  
 
     //view pure
     //Following function retrieves myNumber data from the contract
